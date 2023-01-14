@@ -7,11 +7,11 @@ const eventsSchema = new Schema({
         {
             public_id: {
                 type: String,
-                required: true
+                required: false
             },
             url: {
                 type: String,
-                required: true
+                required: false
             }
         }
         
@@ -23,16 +23,16 @@ const eventsSchema = new Schema({
     host : {
         type : String ,
         required : true
-
     },
     date : {
         type : Date ,
-        required : true
+        required : false,
+        default: new Date()
 
     },
     time : {
         type : Date ,
-        required : true
+        required : false
 
     },
     descp : {
