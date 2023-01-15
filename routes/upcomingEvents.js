@@ -3,7 +3,8 @@ const {
     createEvent,
     getEvent,
     getEvents,
-    deleteEvents
+    deleteEvents,
+    updateEvents
 
 } = require('../controllers/EventControllers')
 const router = express.Router()
@@ -20,10 +21,10 @@ router.route("/new").post(createEvent);
 
 
 //delete
-router.route("/event/:id").delete(deleteEvents);
+router.route("/delete/:id").delete(deleteEvents);
 
 //update
-//router.delete('/' , updateEvent)
+router.route("/update/:id").put(updateEvents);
 
 
 

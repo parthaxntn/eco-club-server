@@ -111,5 +111,6 @@ module.exports = {
     createEvent,
     getEvent,
     getEvents,
-    deleteEvents
+    deleteEvents,
+    updateEvents
 }
