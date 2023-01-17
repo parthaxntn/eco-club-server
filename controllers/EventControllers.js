@@ -8,6 +8,7 @@ const getEvents = async (req,res)=>{
     res.status(200).json(event )
 }
 
+
 //get a single event
 const getEvent = async (req,res)=>{
     const  {id} = req.params
@@ -22,6 +23,7 @@ const getEvent = async (req,res)=>{
     }
     res.status(200).json(event)
 }
+
 
 //create new event
 const createEvent = async (req,res)=>{
