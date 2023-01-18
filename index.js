@@ -1,7 +1,7 @@
 const express = require('express')
 const connectMongo = require('./config/database')
 const app = express()
-const EventRoutes = require('./routes/upcomingEvents')
+const EventRoutes = require('./routes/EventRoutes')
 
 app.use(express.json())
 
