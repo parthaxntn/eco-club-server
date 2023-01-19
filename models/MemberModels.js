@@ -36,6 +36,3 @@ const membersSchema = new Schema({
 module.exports = mongoose.model('members' , membersSchema)
 
 
-
-
-module.exports = mongoose.model('events' , eventsSchema)

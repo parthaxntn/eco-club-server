@@ -16,13 +16,13 @@ router.route("/events").get(getEvents);
 router.route("/event/:id").get(getEvent);
 
 //router.post('/id' , createEvent)
-router.route("/new").post(createEvent);
+router.route("/event/new").post(createEvent);
 
 //delete
-router.route("/delete/:id").delete(deleteEvents);
+router.route("/event/delete/:id").delete(deleteEvents);
 
 //update
-router.route("/update/:id").put(updateEvents);
+router.route("/event/update/:id").put(updateEvents);
 
 
 module.exports = router
