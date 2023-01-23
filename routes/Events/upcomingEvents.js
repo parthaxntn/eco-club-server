@@ -4,7 +4,7 @@ const {
     getEvent,
     getEvents
 
-} = require('../controllers/EventControllers')
+} = require('../../controllers/Events/EventControllers')
 const router = express.Router()
 
 
