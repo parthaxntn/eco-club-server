@@ -1,8 +1,8 @@
 const express = require('express')
 const connectMongo = require('./config/database')
 const app = express()
-const EventRoutes = require('./routes/EventRoutes')
-const MemberRoutes = require('./routes/MembersRoute')
+const EventRoutes = require('./routes/Events/upcomingEvents')
+const AdminRoutes = require('./routes/Admin/AdminRoutes')
 const AchievementsRoutes = require('./routes/AchievementsRoutes')
 
 app.use(express.json())
@@ -19,13 +19,11 @@ app.use('/api/member', MemberRoutes)
 app.use('/api/achievement', AchievementsRoutes)
 
 
-app.get('/', (req, res) => {
-    res.send('Hello ECO!')
-})
+app.use('/api/admin', AdminRoutes)
 
 connectMongo().then(
     app.listen(process.env.PORT,()=>{
-        console.log(`Server is listening on port ${process.env.PORT}`);
+        console.log(`Server is listening on port ${Connection.urlencoded}`);
     })
 )
 
