@@ -3,8 +3,8 @@ const {
     createMember,
     getMember,
     getMembers,
-    deleteMembers,
-    updateMembers
+    deleteMember,
+    updateMember
 
 } = require('../controllers/MemberControllers')
 const router = express.Router()
@@ -19,10 +19,10 @@ router.route("/Member/:id").get(getMember);
 router.route("/Member/new").post(createMember);
 
 //delete
-router.route("/Member/delete/:id").delete(deleteMembers);
+router.route("/Member/delete/:id").delete(deleteMember);
 
 //update
-router.route("/Member/update/:id").put(updateMembers);
+router.route("/Member/update/:id").put(updateMember);
 
 
 module.exports = router

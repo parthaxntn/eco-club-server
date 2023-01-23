@@ -27,7 +27,7 @@ const membersSchema = new Schema({
 
     date: {
          type: Date,
-         default: +new Date() + 30*24*60*60*1000 ,
+         default: +new Date() ,
          required : false
     },
 
