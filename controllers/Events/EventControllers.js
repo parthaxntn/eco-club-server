@@ -8,6 +8,7 @@ const getEvents = async (req,res)=>{
     res.status(200).json(event )
 }
 
+
 //get a single event
 const getEvent = async (req,res)=>{
     const  {id} = req.params
@@ -15,16 +16,14 @@ const getEvent = async (req,res)=>{
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error:'no such event'})
     }
-
-
     const event = await Event.findById(id)
 
     if (!event){
         return res.status(404).json({error : 'No such event'})
     }
-
     res.status(200).json(event)
 }
+
 
 //create new event
 const createEvent = async (req,res)=>{
@@ -39,9 +38,47 @@ const createEvent = async (req,res)=>{
     }
 }
 
+const deleteEvents = async (req,res)=>{
+    const  {id} = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error:'no such event'})
+    }
+
+    const event = await Event.findOneAndDelete({_id: id})
+    if (!event){
+        return res.status(400).json({error:'No such event'})
+    }
+
+    res.status(200).json(event)
+    
+}
+
+
+//update event
+const updateEvents = async (req,res)=>{
+    const  {id} = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error:'no such event'})
+    }
+
+    const event = await Event.findOneAndUpdate({_id : id} , {
+        ...req.body
+    })
+
+    if (!event){
+        return res.status(400).json({error:'No such event'})
+    }
+    res.status(200).json(event)
+}
+
+
+
 module.exports = {
     createEvent,
     getEvent,
-    getEvents
-    
+    getEvents,
+    deleteEvents,
+    updateEvents
 }

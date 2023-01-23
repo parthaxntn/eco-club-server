@@ -15,6 +15,7 @@ if(process.env.NODE_ENV!=="PRODUCTION"){
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/event', EventRoutes)
+app.use('/api/member', MemberRoutes)
 
 
 app.use('/api/admin', AdminRoutes)
@@ -24,3 +25,4 @@ connectMongo().then(
         console.log(`Server is listening on port ${Connection.urlencoded}`);
     })
 )
+

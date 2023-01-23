@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
-const eventsSchema = new Schema({
+const membersSchema = new Schema({
 
     images: [
         {
@@ -16,32 +16,23 @@ const eventsSchema = new Schema({
         }
         
     ],
-    title :{
+    name :{
         type : String,
         required : true
     },
-    host : {
+    designation : {
         type : String ,
         required : true
     },
-    date : {
-        type : Date ,
-        required : false,
-        default: new Date()
 
+    date: {
+         type: Date,
+         default: +new Date() ,
+         required : false
     },
-    time : {
-        type : Date ,
-        required : false
-
-    },
-    descp : {
-        type : String ,
-        required : true
-
-    },
-   
 
 },{timestamps : true })
 
-module.exports = mongoose.model('events' , eventsSchema)
+module.exports = mongoose.model('members' , membersSchema)
+
+
