@@ -3,6 +3,7 @@ const connectMongo = require('./config/database')
 const app = express()
 const EventRoutes = require('./routes/EventRoutes')
 const MemberRoutes = require('./routes/MembersRoute')
+const AchievementsRoutes = require('./routes/AchievementsRoutes')
 
 app.use(express.json())
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/event', EventRoutes)
 app.use('/api/member', MemberRoutes)
+app.use('/api/achievement', AchievementsRoutes)
 
 
 app.get('/', (req, res) => {
