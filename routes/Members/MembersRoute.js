@@ -6,7 +6,7 @@ const {
     deleteMember,
     updateMember
 
-} = require('../controllers/MemberControllers')
+} = require('../../controllers/MemberControllers')
 const router = express.Router()
 
 //get all Members

@@ -1,4 +1,4 @@
-const Member = require ('../models/MemberModels')
+const Member = require ('../models/Members/MemberModels')
 const mongoose = require('mongoose')
 
 

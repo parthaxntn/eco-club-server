@@ -1,7 +1,7 @@
 const express = require('express')
 const connectMongo = require('./config/database')
 const app = express()
-const EventRoutes = require('./routes/Events/upcomingEvents')
+const EventRoutes = require('./routes/Events/EventRoutes')
 const AdminRoutes = require('./routes/Admin/AdminRoutes')
 const { Connection } = require('mongoose')
 
@@ -15,8 +15,8 @@ if(process.env.NODE_ENV!=="PRODUCTION"){
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/event', EventRoutes)
-app.use('/api/member', MemberRoutes)
 
+// app.use('/api/member', MemberRoutes)
 
 app.use('/api/admin', AdminRoutes)
 

@@ -6,7 +6,7 @@ const {
     deleteEvents,
     updateEvents
 
-} = require('../controllers/EventControllers')
+} = require('../../controllers/Events/EventControllers')
 const router = express.Router()
 
 //get all events
