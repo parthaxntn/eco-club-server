@@ -3,7 +3,7 @@ const connectMongo = require('./config/database')
 const app = express()
 const EventRoutes = require('./routes/Events/EventRoutes')
 const AdminRoutes = require('./routes/Admin/AdminRoutes')
-const { Connection } = require('mongoose')
+const AchievementsRoutes = require('./routes/AchievementsRoutes')
 
 app.use(express.json())
 
@@ -15,6 +15,8 @@ if(process.env.NODE_ENV!=="PRODUCTION"){
 app.use(express.urlencoded({ extended: true }))
 
 app.use('/api/event', EventRoutes)
+app.use('/api/member', MemberRoutes)
+app.use('/api/achievement', AchievementsRoutes)
 
 // app.use('/api/member', MemberRoutes)
 
