@@ -5,7 +5,7 @@ const { Login, Logout, registerUser } = require('../../controllers/Admin/AdminCo
 const router = express.Router();
 
 router.route('/login').post(Login)
-router.route('/logout').post(Logout)
+router.route('/logout').get(Logout)
 router.route('/register').post(registerUser)
 
 module.exports =  router
