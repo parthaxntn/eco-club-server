@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const blogSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Please Enter blog Name"],
         trim: true,
     },
     category: {
@@ -12,7 +11,6 @@ const blogSchema = new mongoose.Schema({
     },
     desc: {
         type: String,
-        required: [true, "Please Enter blog Description"],
     },
     images: [
         {
@@ -26,12 +24,13 @@ const blogSchema = new mongoose.Schema({
             }
         }
     ],
-
-    formLink:{
-        type: String
+    subtitle:{
+        type: String,
     },
-   
-    startTime:{
+    designation:{
+        type: String,
+    },
+    time:{
         type:String,
         required: [false, "Please Enter blog start Time"],
         default:Date.now()

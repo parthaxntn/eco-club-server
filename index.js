@@ -5,7 +5,7 @@ const AdminRoutes = require('./routes/Admin/AdminRoutes')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const router = require('./routes/Route')
-var cloudinary = require('cloudinary').v2;
+var cloudinary = require('cloudinary');
 const multer = require('multer')()
 
 app.use(express.json())
@@ -20,8 +20,7 @@ if(process.env.NODE_ENV!=="PRODUCTION"){
 cloudinary.config({ 
     cloud_name: process.env.CLOUDINARY_NAME, 
     api_key: process.env.CLOUDINARY_API_KEY, 
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-    secure: true
+    api_secret: process.env.CLOUDINARY_API_SECRET
   });
 
 app.use(express.urlencoded({ extended: false }))

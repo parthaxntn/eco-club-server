@@ -3,43 +3,53 @@ const cloudinary = require("cloudinary");
 
 
 //create blog
-exports.createblog = async (req, res, next) => {
+exports.createblog = async (req, res) => {
     try {
-        console.log(req.body);
-        if (req.files){
 
             let images = [];
+            let imagesLink = [];
+            // console.log(req);
             images = req.files
-            
-            const imagesLink = [];
-            
-            // for (let i = 0; i < images.length; i++) {
-            //     const result = await cloudinary.v2.uploader.upload(images, {
-            //         folder: "blog",
-            //     });
-                
-            //     console.log(result.public_id);
-                
-            //     imagesLink.push({
-            //         public_id: result.public_id,
-            //         url: result.secure_url,
-            //     })
-            // // }
-            // console.log(imagesLink);
-            // req.body.images = imagesLink;
-        }
-        const data = {...req.body,"category": req.params.cate}
-        const blogdata = await blog.create(data);
-        // console.log(data);
-        res.status(201).json({
-            success: true,
-            // data : {
-            //     ...blogdata,
-            //     "category": req.params.cate
-            // },
-            blogdata
-        })
+            // console.log(images);
+            // console.log(images[0]);
+            // console.log(req.files.avatar.tempFilePath);
 
+            try{
+                const result = await cloudinary.v2.uploader.upload(req.files.avatar.tempFilePath, {
+                folder: "blog",
+                })
+                console.log('hello');
+                console.log(result);
+            }
+            catch (err1) {
+                console.log('hello error');
+                console.log(err1);
+            }
+
+            // console.log('hello');
+            
+
+
+
+            imagesLink.push({
+                public_id: result.public_id,
+                url: result.secure_url,
+            })
+
+            // }
+            console.log(imagesLink);
+            req.body.images = imagesLink;
+            const data = { ...req.body, "category": req.params.cate }
+            const blogdata = await blog.create(data);
+            // console.log(data);
+            res.status(201).json({
+                success: true,
+                // data : {
+                //     ...blogdata,
+                //     "category": req.params.cate
+                // },
+                blogdata
+            })
     } catch (err) {
         res.send(err.message);
     }
@@ -151,7 +161,7 @@ exports.getblogDetails = async (req, res, next) => {
 //get all blog
 exports.getAllblog = async (req, res) => {
     try {
-        const blogdata = await blog.find({category: req.params.cate});
+        const blogdata = await blog.find({ category: req.params.cate });
         // const blogCount = await blogdata.countDocuments();
 
         res.status(201).json(
