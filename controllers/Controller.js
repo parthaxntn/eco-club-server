@@ -18,30 +18,22 @@ exports.createblog = async (req, res) => {
                 const result = await cloudinary.v2.uploader.upload(req.files.avatar.tempFilePath, {
                 folder: "blog",
                 })
-                console.log('hello');
-                console.log(result);
+                // console.log(result.url);
+                // console.log('hello');
+                imagesLink.push({
+                    public_id: result.public_id,
+                    url: result.secure_url,
+                })
             }
             catch (err1) {
                 console.log('hello error');
                 console.log(err1);
             }
 
-            // console.log('hello');
-            
-
-
-
-            imagesLink.push({
-                public_id: result.public_id,
-                url: result.secure_url,
-            })
-
             // }
-            console.log(imagesLink);
             req.body.images = imagesLink;
             const data = { ...req.body, "category": req.params.cate }
             const blogdata = await blog.create(data);
-            // console.log(data);
             res.status(201).json({
                 success: true,
                 // data : {

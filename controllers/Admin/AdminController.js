@@ -65,7 +65,7 @@ exports.isauthenticated = async (req,res,next) => {
 
 exports.Logout = (req, res, next) => {
     try {
-        res.cookie("CSS_Website", null, {
+        res.cookie("ECO_Website", null, {
             expires: new Date(Date.now()),
             httpOnly: true,
         });
