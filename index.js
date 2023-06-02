@@ -32,6 +32,7 @@ app.use(function (req, res, next) {
 
     const allowedOrigins = [process.env.CLIENT_URL, process.env.CONSOLE_URL];
     const origin = req.headers.origin;
+    console.log(origin);
     if (allowedOrigins.includes(origin)) {
         res.header('Access-Control-Allow-Origin', origin);
     }
